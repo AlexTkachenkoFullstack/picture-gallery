@@ -1,2 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-const axios = require('axios').default;
+import axios from 'axios';
+
+const refs = {
+    searchFormEl: document.querySelector('.search-form'),
+    galleryEl:document.querySelector('.gallery'),
+}
