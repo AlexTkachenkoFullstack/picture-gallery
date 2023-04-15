@@ -34,13 +34,14 @@ async function getFetchPicture(valueOfInput) {
         Notify.failure('Sorry, there are no images matching your search query. Please try again.');
     return
   }
-  addTotalHitsInfo(totalItems);
+  
  buildMarkup(arrayOfItems);
 }
 
 
 function buildMarkup(arrayOfItems) {
   isListOfItemsFinished();
+  addTotalHitsInfo(totalItems);
     const markupString= arrayOfItems.reduce((acc, {webformatURL, largeImageURL, tags, likes, views,comments,downloads}) => {
         return acc += `
 <div class="photo-card">
