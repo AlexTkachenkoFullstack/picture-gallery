@@ -77,7 +77,10 @@ function buildMarkup(arrayOfItems) {
         `
   }, '');
   refs.galleryEl.insertAdjacentHTML("beforeend", markupString);
-  smoothScroll();
+  
+  if (currentPage > 1){
+    smoothScroll();
+  }
  
   gallery.refresh();
   applySimpleLightbox();
