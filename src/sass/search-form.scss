@@ -1,0 +1,45 @@
+.form-section{
+    position: fixed;
+   top:0px;
+height: 75px;
+width: 100vw;
+background-image:  linear-gradient(to right,
+            rgb(250, 55, 208),
+            rgb(44, 11, 231));
+opacity: 0.9;
+}
+
+.search-form{
+    position: absolute;
+    transform: translateX(-50%);
+        left: 50%;
+        top: 15px;
+    
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 30px;
+}
+
+.search-form>input{
+    width: 15vw;
+    height: 35px;
+background-color: rgb(245, 173, 173);
+transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-form>input:hover{
+    background-color: aqua;
+}
+
+.search-form>button{
+    height: 35px;
+        background-color: rgb(111, 252, 123);
+        transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-form>button:hover{
+    background-color: rgb(27, 238, 44);
+    
+}
