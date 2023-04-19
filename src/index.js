@@ -22,7 +22,7 @@ const refs = {
 
 console.log(window)
 refs.searchFormEl.addEventListener('submit', handleSearchFormSubmit);
-refs.loadMoreBtnEl.addEventListener('click', throttle(handleLoadMoreClick, 500));
+refs.loadMoreBtnEl.addEventListener('click', handleLoadMoreClick);
 
 function handleSearchFormSubmit(event) {
   event.preventDefault();
