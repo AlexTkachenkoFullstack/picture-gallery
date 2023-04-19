@@ -12,8 +12,8 @@
     border: 0;
     padding: 0;
 }
-.container {
-    width: 100vw;
+.section {
+    width: 100%;
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -23,5 +23,7 @@ body{
             #16A085,
             #F4D03F 25%,
             #20BDFF 50%,
-            #A5FECB 75%);
-        }
+            #A5FECB 75%,
+            #f506fd 100%);
+        };
+

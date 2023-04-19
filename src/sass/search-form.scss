@@ -1,45 +1,52 @@
 .form-section{
     position: fixed;
    top:0px;
-height: 75px;
-width: 100vw;
-background-image:  linear-gradient(to right,
-            rgb(250, 55, 208),
-            rgb(44, 11, 231));
-opacity: 0.9;
+left:30%
 }
 
 .search-form{
-    position: absolute;
-    transform: translateX(-50%);
-        left: 50%;
-        top: 15px;
-    
 
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 30px;
+display: inline-flex;
+align-items: center;
+background-image: linear-gradient(45deg,rgb(110, 214, 255),
+    rgb(231, 216, 11));
+    color: #070730;
+    opacity: 0.9;
+    padding-left: 6px;
+    padding-right: 18px;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    border-radius: 4px;
+}
+
+.search-form :is(input, button){
+    background: transparent;
+    color: inherit;
+    border: none;
+    outline: none;
 }
 
 .search-form>input{
-    width: 15vw;
-    height: 35px;
-background-color: rgb(245, 173, 173);
-transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+font-size: 24px;
+width:0;
+transition: width 0.5s;
 }
 
-.search-form>input:hover{
-    background-color: aqua;
+.search-form>input::placeholder{
+    color:black;
 }
+
 
 .search-form>button{
-    height: 35px;
-        background-color: rgb(111, 252, 123);
-        transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+display: grid;
+place-items: center;
+width: 25px;
+height: 25px;
+cursor: pointer;
+transition: color .25s;
 }
 
-.search-form>button:hover{
-    background-color: rgb(27, 238, 44);
-    
+.search-form:focus-within input{
+    width: 500px;
 }

@@ -1,6 +1,6 @@
 
 .gallery-section{
-  margin-top: 75px;
+  margin-top: 50px;
   padding-top: 5px;
   padding-bottom: 20px;
   display: flex;
@@ -19,6 +19,7 @@
     gap: 5px;
     padding: 0;
 }
+
 .photo-card{
   flex-basis: calc((100% - 15px) / 4)
 }
@@ -30,11 +31,11 @@
 
 .info{
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
 .info-item{
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   text-align: center;
  
