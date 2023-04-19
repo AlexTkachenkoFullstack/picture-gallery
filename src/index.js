@@ -62,14 +62,12 @@ refs.galleryEl.insertAdjacentHTML("beforeend", buildMarkup(arrayOfItems));
 }
 
 function isListOfItemsFinished() {
-   console.log(newAPIService.currentPage)
   if (newAPIService.totalItems / (newAPIService.limOnPage * newAPIService.currentPage) <= 1) {
     refs.loadMoreBtnEl.classList.add('hidden');
     Notify.failure("We're sorry, but you've reached the end of search results.", {width: '400px', fontSize: '18px'})
   return
   }
   refs.loadMoreBtnEl.classList.remove('hidden');
-  console.log(newAPIService.currentPage)
 }
 
 function addTotalHitsInfo(totalItems) {
