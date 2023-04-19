@@ -20,9 +20,9 @@ const refs = {
   }
   let gallery = new SimpleLightbox('.gallery a', options);
 
-
+console.log(window)
 refs.searchFormEl.addEventListener('submit', handleSearchFormSubmit);
-refs.loadMoreBtnEl.addEventListener('click', handleLoadMoreClick);
+refs.loadMoreBtnEl.addEventListener('click', throttle(handleLoadMoreClick, 500));
 
 function handleSearchFormSubmit(event) {
   event.preventDefault();
