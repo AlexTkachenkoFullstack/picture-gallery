@@ -1,5 +1,13 @@
-import InfiniteScroll from 'infinite-scroll';
-const options = {
+// var infScroll = new InfiniteScroll( '.container', {
+//   path: getPenPath,
+//   append: '.photo-card',
 
-}
-export let infScroll = new InfiniteScroll('.container', options);
+//   hideNav: 'refs.loadMoreBtnEl',
+// });
+
+// //-------------------------------------//
+// // hack CodePen to load pens as pages
+
+// function getPenPath() {
+//    return newAPIService.returnUrlString;
+// }

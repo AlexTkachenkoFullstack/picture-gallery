@@ -4,7 +4,8 @@ import SimpleLightbox from "simplelightbox";
 import { buildMarkup } from "./js/markup";
 import { NewAPIService } from "./js/fetchPictures";
 import { smoothScroll } from "./js/smoothScroll";
-var throttle = require('lodash.throttle');
+// import InfiniteScroll from 'infinite-scroll';
+// var throttle = require('lodash.throttle');
 const newAPIService = new NewAPIService();
 const refs = {
     searchFormEl: document.querySelector('.search-form'),
@@ -13,22 +14,23 @@ const refs = {
   totalItemsEl:document.querySelector('.totalItemsInfo'),
 }
 
+
  const options={
    closeText: 'x',
    captionsData: "alt",
    captionDelay: 500,
   }
-  let gallery = new SimpleLightbox('.gallery a', options);
+let gallery = new SimpleLightbox('.gallery a', options);
 
-console.log(window)
 refs.searchFormEl.addEventListener('submit', handleSearchFormSubmit);
-refs.loadMoreBtnEl.addEventListener('click', handleLoadMoreClick);
+// refs.loadMoreBtnEl.addEventListener('click', handleLoadMoreClick);
 
 function handleSearchFormSubmit(event) {
   event.preventDefault();
   refs.galleryEl.innerHTML = '';
   newAPIService.reset();
   addClassHidden();
+  
   newAPIService.query = event.target.elements.searchQuery.value.trim();
   if (newAPIService.searchQuery === '') {
     Notify.failure('Enter your request in the field', { width: '400px', fontSize: '18px' })
@@ -45,6 +47,11 @@ function addClassHidden() {
 }
 
 async function getFetchPicture() {
+if (newAPIService.isLoading) {
+    return;
+  }
+  newAPIService.isLoading = true;
+
   const data = await newAPIService.fetchPictures();
   newAPIService.totalItems = data?.totalHits;
   const arrayOfItems = data?.hits;
@@ -58,16 +65,18 @@ refs.galleryEl.insertAdjacentHTML("beforeend", buildMarkup(arrayOfItems));
     smoothScroll(refs.galleryEl);
   }
   gallery.refresh();
-   isListOfItemsFinished();
+  isListOfItemsFinished();
+  newAPIService.updateCurrentPage();
+  newAPIService.isLoading = false;
 }
 
 function isListOfItemsFinished() {
   if (newAPIService.totalItems / (newAPIService.limOnPage * newAPIService.currentPage) <= 1) {
-    refs.loadMoreBtnEl.classList.add('hidden');
+    // refs.loadMoreBtnEl.classList.add('hidden');
     Notify.failure("We're sorry, but you've reached the end of search results.", {width: '400px', fontSize: '18px'})
   return
   }
-  refs.loadMoreBtnEl.classList.remove('hidden');
+  // refs.loadMoreBtnEl.classList.remove('hidden');
 }
 
 function addTotalHitsInfo(totalItems) {
@@ -75,8 +84,26 @@ function addTotalHitsInfo(totalItems) {
    refs.totalItemsEl.textContent = `Hooray! We found ${totalItems} images.`
 }
 
-function handleLoadMoreClick(event) {
-  newAPIService.updateCurrentPage();
-  getFetchPicture();
-}
+// Кнопка LoadMore
+// async function handleLoadMoreClick(event) {
+//   addClassHidden();
+//    newAPIService.updateCurrentPage();
+//    getFetchPicture();
+// }
+
+window.addEventListener('scroll', () => {
+  if ((newAPIService.currentPage-1) * newAPIService.limOnPage < newAPIService.totalItems) {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    
+    if (scrollTop + clientHeight >= scrollHeight - 5) {
+      
+    getFetchPicture();
+  }
+    }
+});
+
+
+
+
+
 

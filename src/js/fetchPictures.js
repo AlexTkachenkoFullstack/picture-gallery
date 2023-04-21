@@ -7,8 +7,18 @@ export class NewAPIService{
         this.totalItems = null;
     }
 
-async fetchPictures() {
-    const url = 'https://pixabay.com/api/';
+    async fetchPictures() {
+        const UrlString = this.returnUrlString();
+    try {
+        const response = await axios.get(UrlString);
+        return response?.data;
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+    returnUrlString() {
+        const url = 'https://pixabay.com/api/';
     const objectOfParams = {
         key: '35387506-5af8e0fa3bfbe7696023fb8a4',
         q: this.searchQuery,
@@ -19,14 +29,9 @@ async fetchPictures() {
         page: this.currentPage
     };
     const instanceParams = new URLSearchParams(objectOfParams).toString()
-    try {
-        const response = await axios.get(`${url}?${instanceParams}`);
-        return response?.data;
-    } catch (error) {
-        console.error(error.message);
+    return `${url}?${instanceParams}`
     }
-}
-
+    
     updateCurrentPage() {
       return  this.currentPage +=1;
     }
