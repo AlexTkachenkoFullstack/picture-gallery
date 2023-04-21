@@ -61,7 +61,9 @@ if (newAPIService.isLoading) {
   }
    addTotalHitsInfo(newAPIService.totalItems);
 refs.galleryEl.insertAdjacentHTML("beforeend", buildMarkup(arrayOfItems));
-  smoothScroll(refs.galleryEl);
+  if (newAPIService.currentPage > 1) {
+    smoothScroll(refs.galleryEl);
+  }
   gallery.refresh();
   isListOfItemsFinished();
   newAPIService.updateCurrentPage();
