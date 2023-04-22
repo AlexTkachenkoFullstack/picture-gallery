@@ -60,7 +60,6 @@ if (newAPIService.isLoading) {
     return;
   }
   newAPIService.isLoading = true;
-
   const data = await newAPIService.fetchPictures();
   newAPIService.totalItems = data?.totalHits;
   const arrayOfItems = data?.hits;
