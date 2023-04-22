@@ -1,6 +1,4 @@
 export function buildMarkup(arrayOfItems) {
-    // isListOfItemsFinished();
-    
     return arrayOfItems.reduce((acc, { webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
         return acc += `
 <div class="photo-card">
