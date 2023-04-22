@@ -16,17 +16,32 @@
 .gallery{
   display: flex;
   flex-wrap: wrap;
-    gap: 5px;
+    gap: 10px;
     padding: 0;
 }
 
 .photo-card{
-  flex-basis: calc((100% - 15px) / 4)
+  flex-basis: calc((100% - 30px) / 4)
 }
 
-.gallery-img{
-  width:100%;
-  object-fit:cover
+.gallery__image:hover {
+  transform: scale(1.03);
+}
+
+.gallery__image {
+  width: 100%;
+  object-fit: cover;
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.gallery__link {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+}
+
+.gallery__link:hover {
+  cursor: zoom-in;
 }
 
 .info{
@@ -67,4 +82,5 @@ margin-right: auto;
     transform: rotate(360deg);
   }
 }
+
 

@@ -41,13 +41,13 @@ function handleSearchFormSubmit(event) {
   addClassHidden();
   newAPIService.query = event.target.elements.searchQuery.value.trim();
 
-  if (newAPIService.searchQuery === '') {
+  if (newAPIService.query === '') {
     Notify.failure('Enter your request in the field', { width: '400px', fontSize: '18px' })
+   observer.unobserve(refs.moreEl);
     return
   }
   getFetchPicture();
   observer.observe(refs.moreEl);
-  
 }
 
 function addClassHidden() {
