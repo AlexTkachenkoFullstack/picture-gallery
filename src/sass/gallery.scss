@@ -5,6 +5,10 @@
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  
 }
 .totalItemsInfo{
   font-size: 20px;
@@ -50,14 +54,13 @@
 }
 
 .info-item{
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 400;
   text-align: center;
- 
 }
 
 .load-more{
-  background-color: rgb(247, 183, 7);
+  background-color: rgb(31, 8, 135);
 margin-left: auto;
 margin-right: auto;
 }

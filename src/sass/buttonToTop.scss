@@ -1,0 +1,33 @@
+.toTop{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: rgb(38, 0, 191);
+  display: none;
+  z-index: 99;
+  color: white;
+  cursor: pointer;
+}
+
+.toTop:hover{
+    animation: pulsare 1s ease-in-out;
+}
+
+@keyframes pulsare{
+    0%{
+        box-shadow:  0 0 25px #5ddcff,
+        0 0 50px #4e00c2;
+        background-color: aqua;
+    }
+}
+
+.svgButtonToTop{
+    fill: rgb(38, 0, 191);
+}

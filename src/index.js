@@ -4,12 +4,15 @@ import SimpleLightbox from "simplelightbox";
 import { buildMarkup } from "./js/markup";
 import { NewAPIService } from "./js/fetchPictures";
 import { smoothScroll } from "./js/smoothScroll";
+import {ButtonToTop} from './js/buttonToTop'
+
 const refs = {
     searchFormEl: document.querySelector('.search-form'),
     galleryEl: document.querySelector('.gallery'),
   loadMoreBtnEl: document.querySelector('.load-more'),
   totalItemsEl: document.querySelector('.totalItemsInfo'),
-  moreEl:document.querySelector('.more')
+  moreEl: document.querySelector('.more'),
+  buttonToTopEl:document.querySelector('.toTop')
 }
 const newAPIService = new NewAPIService();
 const observer = new IntersectionObserver(entries => {
@@ -19,6 +22,10 @@ const observer = new IntersectionObserver(entries => {
     console.log("Loaded new items");
   }
 });
+
+const buttonToTop = new ButtonToTop(refs.buttonToTopEl)
+window.onscroll = function() {buttonToTop.scrollFunction()};
+refs.buttonToTopEl.addEventListener('click', buttonToTop.topFunction)
 
 let gallery = new SimpleLightbox('.gallery a',
   {
@@ -56,6 +63,7 @@ function addClassHidden() {
 }
 
 async function getFetchPicture() {
+  
 if (newAPIService.isLoading) {
     return;
   }
@@ -119,5 +127,23 @@ function addTotalHitsInfo(totalItems) {
 
 
 
+// const buttonToTop = document.querySelector('.toTop');
+// console.log(buttonToTop)
+// window.onscroll = function() {scrollFunction()};
+
+// function scrollFunction() {
+//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+//    buttonToTop.style.display = "block";
+//   } else {
+//     buttonToTop.style.display = "none";
+//   }
+// }
+
+// buttonToTop.addEventListener('click', topFunction)
+// // When the user clicks on the button, scroll to the top of the document
+// function topFunction() {
+//   document.body.scrollTop = 0; // For Safari
+//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+// }
 
 
