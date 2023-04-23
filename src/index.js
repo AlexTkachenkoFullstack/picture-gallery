@@ -12,7 +12,8 @@ const refs = {
   loadMoreBtnEl: document.querySelector('.load-more'),
   totalItemsEl: document.querySelector('.totalItemsInfo'),
   moreEl: document.querySelector('.more'),
-  buttonToTopEl:document.querySelector('.toTop')
+  buttonToTopEl: document.querySelector('.toTop'),
+  welcomeEl: document.querySelector('.list-welcome')
 }
 const newAPIService = new NewAPIService();
 const observer = new IntersectionObserver(entries => {
@@ -58,8 +59,9 @@ function handleSearchFormSubmit(event) {
 }
 
 function addClassHidden() {
-  refs.totalItemsEl.classList.add('hidden')
+  refs.totalItemsEl.classList.add('hidden');
   refs.loadMoreBtnEl.classList.add('hidden');
+  refs.welcomeEl.classList.add('hidden');
 }
 
 async function getFetchPicture() {

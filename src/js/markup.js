@@ -2,7 +2,7 @@ export function buildMarkup(arrayOfItems) {
     return arrayOfItems.reduce((acc, { webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
         return acc += `
 <div class="photo-card">
-  <a class="gallery__link" href="${largeImageURL}"><img class="gallery__image" src="${webformatURL}" alt="${tags}" loading="lazy" height="200px" width="280px"/></a>
+  <a class="gallery__link" href="${largeImageURL}"><img class="gallery__image" src="${webformatURL}" alt="${tags}" loading="lazy" height="180px" width="260px"/></a>
   <div class="info">
     <p class="info-item">
       <b>Likes ${likes}</b>
