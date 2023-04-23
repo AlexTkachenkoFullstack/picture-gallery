@@ -18,10 +18,13 @@
   flex-wrap: wrap;
     gap: 10px;
     padding: 0;
+    justify-content: center;
 }
 
 .photo-card{
-  flex-basis: calc((100% - 30px) / 4)
+  max-width: 400px;
+  overflow: hidden;
+  background-color: rgb(159, 255, 112);
 }
 
 .gallery__image:hover {
@@ -31,7 +34,7 @@
 .gallery__image {
   width: 100%;
   object-fit: cover;
-  transition: transform var(--animation-duration) var(--timing-function);
+  transition: transform .35s ease-in-out;
 }
 
 .gallery__link {
@@ -45,8 +48,11 @@
 }
 
 .info{
+  padding-left: 5px;
+  padding-right: 5px;
   display: flex;
   gap: 20px;
+  opacity: 0.8;
 }
 
 .info-item{
